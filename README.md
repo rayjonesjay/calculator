@@ -1,5 +1,5 @@
 ##Program: calculator.go
 
 ##Authors
-[*] Ray
+[*] Ray Jones
 [*] Daniel
