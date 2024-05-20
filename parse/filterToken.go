@@ -10,10 +10,10 @@ func isNumber(token string) bool {
 	return err == nil
 }
 
-func toFloat(token string) float64 {
-	float_token, _ := strconv.ParseFloat(token, 64)
-	return float_token
-}
+// func toFloat(token string) float64 {
+// 	float_token, _ := strconv.ParseFloat(token, 64)
+// 	return float_token
+// }
 
 func isOperand(token string) bool {
 	//remove leading and trailing spaces
