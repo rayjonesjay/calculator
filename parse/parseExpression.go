@@ -12,7 +12,7 @@ func Parse(expression string) {
 	for _ , token := range tokens {
 		if !isNumber(token) && !isOperand(token) {
 			errorHandle.InvalidExpression(token)
-			DisplayPrompt("")
+			DisplayPrompt()
 		}
 	}
 	fmt.Print(expression)
