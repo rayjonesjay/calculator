@@ -5,5 +5,5 @@ import (
 )
 
 func InvalidExpression(invalidToken string) {
-	fmt.Printf("Cannot compute expession: invalid token %q\n",invalidToken)
+	fmt.Printf("invalid token %q\n",invalidToken)
 }
