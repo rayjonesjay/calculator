@@ -11,28 +11,25 @@ func IsNumber(token string) bool {
 }
 
 func Tokenize(input string) ([]string, error) {
-	var tokens []string
-	var numBuffer string 
+    var tokens []string
+    var numBuffer string
 
-	for _, character := range input {
+    for _, character := range input {
+        if unicode.IsDigit(character) || character == '.' {
+            numBuffer += string(character)
+        } else {
+            if numBuffer != "" {
+                tokens = append(tokens, numBuffer)
+                numBuffer = ""
+            }
+            if !unicode.IsSpace(character) {
+                tokens = append(tokens, string(character))
+            }
+        }
+    }
+    if numBuffer != "" {
+        tokens = append(tokens, numBuffer)
+    }
 
-		if unicode.IsDigit(character) || character == '.' {
-				numBuffer += string(character)
-		} else {
-
-			if numBuffer == "" {
-				tokens = append(tokens, numBuffer)
-				numBuffer = ""
-			}
-
-			if unicode.IsSpace(character){
-				continue
-			}
-		}
-	}
-		if numBuffer != "" {
-			tokens =  append(tokens, numBuffer)
-		}
-
-	return tokens,nil
+    return tokens, nil
 }

@@ -11,6 +11,9 @@ import (
 var EXIT_SUCCESS = func() { os.Exit(0) }
 
 func main() {
+
+	fmt.Fprintf(os.Stdout, "****type exit to quit****\n")
+	// fmt.Printf("If resut exceeds [%f] +Inf will be printed.\n",maxFloat)
 	for {
 		expression := parse.ReadInput()
 
@@ -35,10 +38,15 @@ func main() {
 		result, evaluatePostfixError := compute.EvaluatePostfix(postfixNotation)
 
 		if evaluatePostfixError != nil {
-			fmt.Println("Error evaluating postfix notation")
+			fmt.Println("Error evaluating expression")
 			continue
 		}
-	
-		fmt.Printf("result of %s = %.2f\n", expression, result)
+
+		if compute.HasFractionPart(result) {
+			fmt.Printf("result > %.2f\n", result)
+		} else {
+			fmt.Printf("result > %.0f\n", result)
+		}
+
 	}
 }

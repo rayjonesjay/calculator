@@ -16,12 +16,13 @@ func EvaluatePostfix(postfix []string) (float64, error) {
 			stack = append(stack, num)
 		} else {
 			if len(stack) < 2 {
-				return 0, fmt.Errorf("invalid postfix expression")
+				return 0, fmt.Errorf("invalid expression")
 			}
 			b, a := stack[len(stack)-1], stack[len(stack)-2]
 			stack = stack[:len(stack)-2]
 
 			var result float64
+			
 			switch token {
 			case "+":
 				result = a + b
@@ -36,7 +37,7 @@ func EvaluatePostfix(postfix []string) (float64, error) {
 			default:
 				return 0, fmt.Errorf("invalid operator: %s", token)
 			}
-			
+
 			stack = append(stack, result)
 		}
 	}
@@ -44,6 +45,7 @@ func EvaluatePostfix(postfix []string) (float64, error) {
 	if len(stack) != 1 {
 		return 0, fmt.Errorf("invalid postfix expression")
 	}
-
-	return stack[len(stack)-1], nil
+	
+	//return the number at the top of the stack
+	return stack[0], nil
 }
