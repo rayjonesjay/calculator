@@ -1,5 +1,8 @@
-##Program: calculator.go
+## Project Name: calculator
 
-##Authors
+## Program Name: main.go
+
+
+## Authors
 [*] Ray Jones
 [*] Daniel
