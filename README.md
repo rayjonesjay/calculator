@@ -52,3 +52,8 @@ To use the calculator, simply run the program and enter an expression in infix n
 1. Run the program:
    ```sh
    go run main.go
+
+
+## Authors
+   [*] ramuiruri
+   [*] adaniel
