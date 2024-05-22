@@ -1,7 +1,7 @@
 package compute
 
 
-// returns an int indicating the precedence of the operators
+//Precedence() returns an int indicating the precedence of the operators
 func Precedence(op string) int {
 	
 	switch op {

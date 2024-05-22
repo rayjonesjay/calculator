@@ -4,16 +4,18 @@ import (
 	"strconv"
 	"unicode"
     "strings"
-    "fmt"
+
 )
 
+//IsNumber() checks if a token is a number
 func IsNumber(token string) bool {
 	_, err := strconv.ParseFloat(token, 64)
 	return err == nil
 }
 
+//Tokenize() convert the expression into a slice of tokens
 func Tokenize(input string) ([]string, error) {
-    fmt.Println("real input",input)
+  
     input = cleanInput(input)
     var tokens []string
     var numBuffer string
@@ -39,6 +41,7 @@ func Tokenize(input string) ([]string, error) {
 }
 
 
+//cleanInput() makes the string into a valid expression
 func cleanInput(input string) string {
     input = strings.ReplaceAll(input, "of","*")
     var result string 
@@ -51,7 +54,7 @@ func cleanInput(input string) string {
         }
       
     }
-    fmt.Println("result",result)
+ 
     
     return result 
 }

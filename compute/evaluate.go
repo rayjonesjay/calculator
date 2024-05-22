@@ -7,6 +7,8 @@ import (
 	"calculator/parse"
 )
 
+
+//EvaluatePostFix() evaluate the expression that is in postfix notation
 func EvaluatePostfix(postfix []string) (float64, error) {
 	var stack []float64
 

@@ -6,7 +6,6 @@ import (
 )
 
 // InfixToPostFix() converts from infix notation a + b  -> postfix notation a b +
-
 func InfixToPostFix(tokens []string) ([]string, error) {
 	var postfix []string
 	var stack []string
