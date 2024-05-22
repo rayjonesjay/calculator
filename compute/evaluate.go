@@ -11,15 +11,25 @@ func EvaluatePostfix(postfix []string) (float64, error) {
 	var stack []float64
 
 	for _, token := range postfix {
+
 		if parse.IsNumber(token) {
+
 			num, _ := strconv.ParseFloat(token, 64)
+
 			stack = append(stack, num)
+
 		} else {
+
 			if len(stack) < 2 {
+
 				return 0, fmt.Errorf("invalid expression")
+
 			}
+			
 			b, a := stack[len(stack)-1], stack[len(stack)-2]
+		
 			stack = stack[:len(stack)-2]
+
 
 			var result float64
 			
@@ -43,6 +53,7 @@ func EvaluatePostfix(postfix []string) (float64, error) {
 	}
 
 	if len(stack) != 1 {
+		
 		return 0, fmt.Errorf("invalid postfix expression")
 	}
 	
