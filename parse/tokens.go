@@ -3,6 +3,8 @@ package parse
 import (
 	"strconv"
 	"unicode"
+    "strings"
+    "fmt"
 )
 
 func IsNumber(token string) bool {
@@ -11,6 +13,8 @@ func IsNumber(token string) bool {
 }
 
 func Tokenize(input string) ([]string, error) {
+    fmt.Println("real input",input)
+    input = cleanInput(input)
     var tokens []string
     var numBuffer string
 
@@ -32,4 +36,22 @@ func Tokenize(input string) ([]string, error) {
     }
 
     return tokens, nil
+}
+
+
+func cleanInput(input string) string {
+    input = strings.ReplaceAll(input, "of","*")
+    var result string 
+    for i := 0 ; i < len(input); i++{
+        result += string(input[i])
+
+        if IsNumber(string(input[i])) &&  i+1 < len(input) && input[i+1] == '(' {
+            result += "*"
+            input = input+" " 
+        }
+      
+    }
+    fmt.Println("result",result)
+    
+    return result 
 }

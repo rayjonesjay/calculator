@@ -44,6 +44,8 @@ func EvaluatePostfix(postfix []string) (float64, error) {
 				result = a / b
 			case "^":
 				result = math.Pow(a, b)
+			case "of":
+				result  = a * b
 			default:
 				return 0, fmt.Errorf("invalid operator: %s", token)
 			}
@@ -53,7 +55,7 @@ func EvaluatePostfix(postfix []string) (float64, error) {
 	}
 
 	if len(stack) != 1 {
-		
+
 		return 0, fmt.Errorf("invalid postfix expression")
 	}
 	
